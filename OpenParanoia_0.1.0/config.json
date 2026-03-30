@@ -1,0 +1,8 @@
+{
+    "api_key" : "" ,
+    "ws_server_port" : 8765,
+    "mst" : 20,
+    "context_length" : 10,
+    "napcat_wsc_port" : 8767,
+    "napcat_html_port" :8768
+}
