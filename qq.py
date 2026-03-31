@@ -7,7 +7,7 @@ with open('config.json', 'r') as file:
     config = json.loads(file.read())
     ws_server_port=config["ws_server_port"]
     napcat_wsc_port=config["napcat_wsc_port"]
-    napcat_html_port=config["napcat_html_port"]
+    napcat_http_port=config["napcat_http_port"]
 url="ws://127.0.0.1"+str(ws_server_port)
 
 
@@ -30,16 +30,16 @@ async def receive_napcat(websocket):
         url="ws://127.0.0.1:"+str(ws_server_port)
         async with websockets.connect(url) as websocket:
             await websocket.send(receive_json["raw_message"])
-            print("\033[42m 正在思考喵~ \033[0m")
+            print("\033[42m 正在生成回复 \033[0m")
             global callback
             callback = await websocket.recv()
             print(callback)
         global payload
         payload = {"user_id": receive_json["user_id"],"message": callback}
-        url = "http://127.0.0.1:"+str(napcat_html_port)+"/send_private_msg"
+        url = "http://127.0.0.1:"+str(napcat_http_port)+"/send_private_msg"
         resp = requests.post(url, json=payload)
         print(resp.json())
 while True:
-    print("OpenParanoia \033[1;36mNapcat Client\033[0m")
+    print("ParanoiaBot \033[1;36mNapcat Client\033[0m")
     while True:
         asyncio.run(main())

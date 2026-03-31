@@ -1,5 +1,6 @@
 import asyncio
 import websockets
+import json
 with open('config.json', 'r') as file:
     config = json.loads(file.read())
     ws_server_port=config["ws_server_port"]
@@ -10,9 +11,9 @@ async def send_message():
         while True:
             ip = input("\033[1;46m>\033[0m")
             await websocket.send(ip)
-            print("\033[42m 正在思考喵~ +\033[0m")
+            print("\033[42m 正在生成回复 +\033[0m")
             callback = await websocket.recv()
             print(callback)
 while True:
-    print("OpenParanoia \033[1;36mClient\033[0m")
+    print("ParanoiaBot \033[1;36mClient\033[0m")
     asyncio.run(send_message())

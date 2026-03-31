@@ -4,5 +4,5 @@
     "mst" : 20,
     "context_length" : 10,
     "napcat_wsc_port" : 8767,
-    "napcat_html_port" :8768
+    "napcat_http_port" :8768
 }
