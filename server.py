@@ -69,7 +69,7 @@ with open('data.json', 'r') as file:
 while len(all_before_text)>context_length:
   del all_before_text[0]
 print("\033[1;40mdebug:data.js加载完毕 \033[0m")
-print("OpenParanoia \033[1;36mServer\033[0m")
+print("ParanoiaBot \033[1;36mServer\033[0m")
 
 while True:
   asyncio.run(main())
